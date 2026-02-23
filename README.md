@@ -6,19 +6,6 @@
 - **Langage**: Python (100%)
 - **Fichiers**: 9 fichiers (TD1-TD9)
 
-## ⚠️ Problèmes Identifiés
-1. **README vide ou minimal**
-2. **Pas de requirements.txt**
-3. **Pas de .gitignore**
-4. **Pas de description**
-5. **Pas de topics**
-6. **Pas de documentation**
-
----
-
-## 📝 Fichiers à Créer/Modifier
-
-### 1️⃣ README.md (À créer/remplacer)
 
 ```markdown
 # Travaux Pratiques - Machine Learning 🤖
@@ -111,15 +98,6 @@ jupyter notebook
 └── README.md              # Ce fichier
 ```
 
-## 🚀 Exécution Rapide
-
-```bash
-# Exécuter tous les TDs
-for file in *.py; do echo "=== $file ===" && python "$file"; done
-
-# Ou un par un
-python TD1.py && python td2.py && python td3.py
-```
 
 ## 📊 Concepts Clés Couverts
 
@@ -166,61 +144,7 @@ python TD1.py && python td2.py && python td3.py
 - [StatQuest with Josh Starmer](https://www.youtube.com/@statquest)
 - [Hands-On Machine Learning Book](https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/)
 
-## 🔍 Conseils pour Déboguer
 
-```python
-# Vérifier la shape des données
-print(X.shape, y.shape)
-
-# Chercher les valeurs manquantes
-print(df.isnull().sum())
-
-# Vérifier la distribution des classes
-print(y.value_counts())
-
-# Tester d'abord sur un petit subset
-X_sample = X[:100]
-y_sample = y[:100]
-```
-
-## 📊 Exemple d'Utilisation Complète
-
-```python
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
-
-# 1. Charger les données
-data = pd.read_csv('data.csv')
-
-# 2. Préparer les features et la cible
-X = data.drop('target', axis=1)
-y = data['target']
-
-# 3. Splitter
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-# 4. Scaling
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-
-# 5. Entraîner
-clf = RandomForestClassifier(n_estimators=100)
-clf.fit(X_train, y_train)
-
-# 6. Évaluer
-y_pred = clf.predict(X_test)
-print(accuracy_score(y_test, y_pred))
-print(classification_report(y_test, y_pred))
-```
-
-## ❓ FAQ
-
-**Q: Quelle est la différence entre TD et TP?**
-- **TD**: Travaux Dirigés (exercices guidés)
-- **TP**: Travaux Pratiques (implémentations)
 
 **Q: Comment choisir entre plusieurs modèles?**
 - Comparez les performances sur le test set
@@ -254,89 +178,3 @@ ipython>=7.0.0
 scipy>=1.7.0
 ```
 
-### 3️⃣ .gitignore (À créer)
-
-```
-# Jupyter Notebook
-.ipynb_checkpoints/
-*.ipynb_checkpoints
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual Environment
-venv/
-ENV/
-env/
-.venv/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Data files
-data/
-*.csv
-*.xlsx
-*.json
-
-# Logs
-*.log
-```
-
----
-
-## ✅ Actions à Effectuer sur GitHub
-
-### 1. Ajouter une description
-- Description: "Hands-on practical exercises in Machine Learning covering regression, classification, clustering, and feature engineering using Scikit-learn"
-
-### 2. Ajouter les topics
-- `machine-learning`
-- `scikit-learn`
-- `python`
-- `education`
-- `supervised-learning`
-- `unsupervised-learning`
-- `classification`
-- `regression`
-
-### 3. Pousser les fichiers
-```bash
-git add README.md requirements.txt .gitignore
-git commit -m "docs: comprehensive ML documentation and dependencies"
-git push origin main
-```
-
----
-
-## 📌 Suggestions d'Améliorations Futures
-- Ajouter des datasets exemple pour chaque TD
-- Créer des notebooks interactifs
-- Ajouter des solutions partielles ou complètes
-- Documenter les résultats attendus pour chaque TD
